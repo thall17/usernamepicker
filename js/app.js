@@ -1,19 +1,22 @@
 // Here's my data model
-var ViewModel = function(username) {
+var ViewModel = function() {
     var self = this;
 
-    self.username = ko.observable(username);
+    self.username = ko.observable("");
+    self.personName = ko.observable();
+    // self.github = ko.observable("");
 
-    var t = testAjax('github', 'timjhall');
-    console.log("testAjax:");
-    console.log(t);
+    // var t = testAjax('github', 'timjhall');
+    // console.log("testAjax:");
+    // console.log(t);
 
 
     // self.result = testAjax('github', 'timjhall');
+    // console.log(self.result);
 
-    // self.result = ko.computed(function() {
-    //     return testAjax('github', self.username);
-    // }, self);
+    self.result = ko.computed(function() {
+        return testAjax('github', self.username());
+    }, self);
 
 
  
@@ -26,6 +29,9 @@ var ViewModel = function(username) {
 
 
 function testAjax(site, username) {
+  if (username == "") {
+    return "";
+  }
   if (site == 'github') {
     return $.ajax({
       url: `https://api.github.com/users/${username}`
@@ -34,4 +40,4 @@ function testAjax(site, username) {
   
 }
  
-ko.applyBindings(new ViewModel("Username")); // This makes Knockout get to work
+ko.applyBindings(new ViewModel());
