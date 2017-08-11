@@ -9,113 +9,52 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>My Favorite LA Restaurants</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="map-pin-152-195874.png" />
+  <title>Username Picker</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom Fonts -->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-  <!-- Custom CSS -->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-
   <!-- My CSS -->
   <link href="css/style.css" rel="stylesheet">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-  <style>
-      #map {
-      display: block;
-      position: absolute;
-      width: 100%;
-      bottom: 0;
-      top: 0;
-      right: 0;
-      margin-top: 0px;
-      /* used for the top navigation bar 
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-  </style>
 
 </head>
 
 <body>
 
-  <div id="wrapper">
+  <div class="container-fluid">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-        <a class="navbar-brand" href="index.html" id="test-id">My Favorite LA Restaurants</a>
+    
+
+    <div class="row">
+      <div class="col-sm-3">
       </div>
-      <!-- /.navbar-header -->
-
-      <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-          <ul class="nav" id="side-menu">
-            <li class="sidebar-search">
-              <div class="input-group custom-search-form">
-                <input type="text" class="form-control" placeholder="Search..." data-bind="textInput: searchString">
-                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" data-bind="click: clearSearch" id="search-btn">
-                                    <i class="fa fa-close"></i>
-                                </button>
-                                </span>
-              </div>
-              <!-- /input-group -->
-            </li>
-          </ul>
-          <ul class="nav" data-bind="foreach: filteredRestaurants">
-            <li>
-              <a href="#" data-bind="text: name, click: $parent.isolateLocation"></a>
-              <!--                             <button data-bind="click: $parent.isolateLocation">Click here</button>
- --></li>
-          </ul>
-
+      <div class="col-sm-6" style="text-align:center">
+        <h1>Enter your username:</h1>
+        <div class="form-group">
+          <input  data-bind="value: username" type="text" class="form-control" id="formGroupExampleInput" placeholder="Username..." autofocus="true">
         </div>
-        <!-- /.sidebar-collapse -->
       </div>
-      <!-- /.navbar-static-side -->
-    </nav>
-
-    <div id="page-wrapper">
-      <div class="row">
-        <div id="map" class="col-lg-12">
-
-        </div>
-        <!-- /.col-lg-12 -->
+      <!-- /.col-lg-12 -->
+      <div class="col-sm-3">
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /#page-wrapper -->
+    <!-- /.row -->
 
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-6" style="text-align:center">
+        <h3>Results</h3>
+        <h2>Hello, <span data-bind="text: username"> </span>!</h2>
+      </div>
+      <!-- /.col-lg-12 -->
+      <div class="col-sm-3">
+      </div>
+    </div>
+    <!-- /.row -->
   </div>
-  <!-- /#wrapper -->
-
-  <!-- Google Maps -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATH4BTum9CauafoXQm99jAyBwm-RA9L9c&v=3&callback=initMap"></script>
+  <!-- /.container-fluid -->
 
   <!-- Knockout -->
   <script type='text/javascript' src='vendor/knockout/knockout-3.4.2.js'></script>
@@ -125,13 +64,13 @@
 
   <!-- Bootstrap Core JavaScript -->
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-  <!-- Metis Menu Plugin JavaScript -->
+<!-- 
+  <!- - Metis Menu Plugin JavaScript - ->
   <script src="vendor/metisMenu/metisMenu.min.js"></script>
 
-  <!-- Custom Theme JavaScript -->
+  <!- - Custom Theme JavaScript - ->
   <script src="js/sb-admin-2.js"></script>
-
+ -->
   <!-- My JavaScript -->
   <script src="js/app.js"></script>
 
