@@ -3,7 +3,6 @@ var ViewModel = function() {
     var self = this;
 
     self.username = ko.observable("");
-    self.personName = ko.observable();
     // self.github = ko.observable("");
 
     // var t = testAjax('github', 'timjhall');
@@ -14,7 +13,7 @@ var ViewModel = function() {
     // self.result = testAjax('github', 'timjhall');
     // console.log(self.result);
 
-    self.result = ko.computed(function() {
+    self.github = ko.computed(function() {
         return testAjax('github', self.username());
     }, self);
 
@@ -30,12 +29,14 @@ var ViewModel = function() {
 
 function testAjax(site, username) {
   if (username == "") {
-    return "";
+    return false;
   }
   if (site == 'github') {
-    return $.ajax({
-      url: `https://api.github.com/users/${username}`
+    var result =  $.ajax({
+      url: `https://api.github.com/users/${username}`,
     });
+    console.log(`result = ${JSON.stringify(result)}`);
+    return result.login;
   }
   
 }
