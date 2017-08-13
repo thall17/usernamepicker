@@ -5,12 +5,16 @@ var ViewModel = function() {
     self.username = ko.observable("");
    
     self.github = ko.computed(function() {
-        return testAjax('github', self.username());
+        return checkUsername('github', self.username());
+    }, self);
+
+    self.linkedin = ko.computed(function() {
+        return checkUsername('linkedin', self.username());
     }, self);
 
 };
 
-function testAjax(site, username) {
+function checkUsername(site, username) {
   if (username == "") {
     return false;
   }
@@ -28,11 +32,11 @@ function testAjax(site, username) {
         result = true;
       }
     });
-    // console.log('result', result);
-    return result;
-
   }
-  
+  if (site == 'linkedin') {
+    result = true;
+  }
+  return result;
 }
  
 ko.applyBindings(new ViewModel());
