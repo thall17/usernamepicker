@@ -5,8 +5,10 @@ var ViewModel = function() {
     self.username = ko.observable("");
    
     self.github = ko.computed(function() {
-        return testAjax('github', self.username());
+        result = testAjax('github', self.username());
+        return result;
     }, self);
+
 };
 
 function testAjax(site, username) {
@@ -14,11 +16,21 @@ function testAjax(site, username) {
     return false;
   }
   if (site == 'github') {
-    var result =  $.ajax({
+    var result = false;
+    $.getJSON({
       url: `https://api.github.com/users/${username}`,
+      success: function(data) {
+        console.log('success', data);
+        result = false;
+      },
+      error: function(data) {
+        console.log('failure', data);
+        result = true;
+      }
     });
-    console.log(`result = ${JSON.stringify(result)}`);
-    return result.login;
+    console.log('result', result);
+    return result;
+
   }
   
 }
