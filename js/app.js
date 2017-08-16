@@ -15,11 +15,11 @@ var ViewModel = function() {
 };
 
 function checkUsername(site, username) {
+  var result = false;
   if (username == "") {
     return false;
   }
   if (site == 'github') {
-    var result = false;
     $.ajax({
       url: `https://api.github.com/users/${username}`,
       async: false,
@@ -34,7 +34,18 @@ function checkUsername(site, username) {
     });
   }
   if (site == 'linkedin') {
-    result = true;
+    $.ajax({
+      url: `https://api.github.com/users/${username}`,
+      async: false,
+      success: function(data) {
+        // console.log('success', data);
+        result = false;
+      },
+      error: function(data) {
+        // console.log('failure', data);
+        result = true;
+      }
+    });
   }
   return result;
 }
